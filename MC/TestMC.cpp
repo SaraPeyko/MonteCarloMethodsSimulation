@@ -57,13 +57,36 @@ namespace Batch3
 	double S = 100.0; 
 };
 
+template<typename T1, typename T2, typename T3>
+double SD(T1 M, T2 r, T3 T)
+{
+	double SumCsquare = 0; double SumC = 0; double S = M.size();		// M = number of simulations
+	typename T1::const_iterator i;
+
+	for (i = M.begin(); i != M.end(); ++i)
+	{
+		SumCsquare += (*i) * (*i);
+		SumC += (*i);
+	}
+
+	double para1 = sqrt(SumCsquare - ((SumC * SumC) / S));
+	double para2 = para1 * exp(r * T);
+	return (para2 / sqrt(S - 1));
+}
+
+template<typename T1, typename T2, typename T3>
+double SE(T1 M, T2 r, T3 T)
+{
+	double sqrS = sqrt(M.size());
+	return (SD(M, r, T) / sqrS);
+}
 
 int main()
 {
 	// Uncommented to test on different batches
-	// using namespace Batch1;
+	using namespace Batch1;
 	// using namespace Batch2;
-	using namespace Batch3;
+	// using namespace Batch3;
 
 	std::cout << "1 factor MC with explicit Euler\n";
 	OptionData option;
@@ -130,16 +153,21 @@ int main()
 
 		// Calculate the price at t = T
 		double tmp = option.PayOffFunction(Vnew);
+		res.push_back(tmp);
 		price += (tmp) / double(NSim);
 	}
 
 	// discounting the average price
 	price *= exp(-option.r * option.T);
+	double STDEV = SD(res, option.r, option.T);
+	double STERR = SE(res, option.r, option.T);
 
 	// cleanup scoped pointer
 	delete normal;
 
 	std::cout << "Price, after discounting: " << price;
+	std::cout << "\nStandard deviation: " << STDEV;
+	std::cout << "\nStandard Error: " << STERR;
 	std::cout << "\nNumber of time origin is hit: " << count << '\n';
 
 	return 0;
