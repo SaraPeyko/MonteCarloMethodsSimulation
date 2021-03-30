@@ -26,5 +26,3 @@ Execute steps 1-3 M times
 5. Discount the price found in step 4 to t = 0
 
 When the number of time and simulation are larger, it gives the more accurate result.
-
-However, it sometimes doesn't guarantee time and simulation will produce better results.
