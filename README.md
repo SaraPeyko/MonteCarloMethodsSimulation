@@ -26,3 +26,11 @@ Execute steps 1-3 M times
 5. Discount the price found in step 4 to t = 0
 
 When the number of time and simulation are larger, it gives the more accurate result.
+
+### Usage
+
+* **Environment:** Visual Studio 2019 
+
+* **Configuration:** Debug-Windowsx64
+
+* **C++ library:** Vcpkg and boost 17.5.0
