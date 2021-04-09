@@ -25,7 +25,7 @@ Execute steps 1-3 M times
 
 5. Discount the price found in step 4 to t = 0
 
-* **Step 1**
+* **Mathematical background**
 
 Replace continuous time by discrete time, by divide the interval [0,T] where T is expiry date into a number of subintervals
 
