@@ -73,6 +73,6 @@ Add functionalities to the Monte Carlo pricer by providing estimates for standar
 
 * **Environment:** Visual Studio 2019 
 
-* **Configuration:** Debug-Windowsx64
+* **Configuration:** x64-Debug
 
-* **C++ library:** Vcpkg and boost 17.5.0
+* **C++ library:** STL and boost 17.5.0
