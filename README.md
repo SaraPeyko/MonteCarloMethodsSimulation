@@ -53,7 +53,7 @@ Replace the solution X of equation by a new discrete function Y
 
 ![Capture7](https://user-images.githubusercontent.com/24828971/114290678-3bcdde80-9a79-11eb-8439-c46a7dece9ea.JPG)
 
-This is called Euler method when approximating the solution of SDEs which cen write the discrete equation above in the equivalent form
+This is called Euler method when approximating the solution of SDEs, the discrete equation above can be written in the equivalent form
 
 ![Capture8](https://user-images.githubusercontent.com/24828971/114290682-41c3bf80-9a79-11eb-827b-74ab8b0e2ca8.JPG)
 
