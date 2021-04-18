@@ -1,0 +1,3 @@
+project(MonteCarloMethodsSimulations)
+
+add_subdirectory(MC)
