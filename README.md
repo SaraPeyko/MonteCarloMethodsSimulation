@@ -69,7 +69,7 @@ Add functionalities to the Monte Carlo pricer by providing estimates for standar
 
 ![Capture10](https://user-images.githubusercontent.com/24828971/114290688-4be5be00-9a79-11eb-8e7d-e6e525c3a055.JPG)
 
-### Usage
+### Requirements
 
 * **Environment:** Visual Studio 2019 
 
