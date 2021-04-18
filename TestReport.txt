@@ -1,0 +1,101 @@
+
+When N and NSim are larger, it gives more accurate result.
+
+The simulation result shows the result of call option is more accurate than put option.
+As it can be seen from SD and SE of call option increases when N and NSim increase.
+
+However, the accuracy sometimes goes down as N or Nsim goes up in call option 5)
+
+5000 steps and 100000 draws get almost the same result as exact solution.
+
+Batch1: 
+Result call: 2.13337, put: 5.84628
+
+1)
+N=100, Nsim=50000
+Put=5.87749 SD=5.94164 SE=0.0265718
+Call=2.11675 SD=4.41553 SE=0.0197648
+
+2)
+N=100, Nsim=100000
+Put=5.87321 SD=5.9378 SE=0.018777
+Call=2.13043 SD=4.42362 SE=0.0139887
+
+3)
+N=500, Nsim=100000
+Put=5.83818 SD=5.9321 SE=0.0187592
+Call=2.14863 SD=4.46337 SE=0.0141144
+
+
+4)
+N=1000, Nsim=100000
+Put=5.867066 SD=5.93917 SE=0.187813
+Call=2.14465100 SD=4.46224 SE=0.0141108
+
+
+5)
+N=5000, Nsim=100000
+Put=5.83863 SD=5.93395 SE=0.0187648
+Call=2.13585 SD=4.42538 SE=0.0139943
+
+*************************************************************************************************************
+
+The result of Batch2 is more volatile than Batch1, but the trends are almost the same.
+
+The simulation result shows more accurate result of call option than put option.
+As it can be seen from SD and SE of call option increases when N and Nsim increase.
+
+However, when N=5000, Nsim=100000, it also shows the same accurate as exact solution as N and Nsim become very large.
+
+Batch2: 
+Result call:7.96557, put:7.96557
+
+1)
+N=100, Nsim=50000
+Put= 8.0132 SD=10.4474 SE=0.0467222
+Call= 7.90889 SD=13.1239 SE=0.0586919
+
+2)
+N=100, Nsim=100000
+Put= 8.0079 SD=10.4359 SE=0.0330012
+Call= 7.94362 SD=13.1477 SE=0.0415767
+
+3)
+N=500, Nsim=100000
+Put= 7.95795 SD=10.4107 SE=0.0329215
+Call= 8.01256 SD=13.2345 SE=0.0418511
+
+4)
+N=1000, Nsim=100000
+Put=8.00674  SD=10.4307 SE=0.0329847
+Call=7.98184  SD=13.2354 SE=0.0418541
+
+
+5)
+N=5000,Nsim=100000
+Put=7.957 SD=10.4155 SE=0.0329366
+Call=7.97973 SD=13.1469 SE=0.0415741
+
+*************************************************************************************************************
+
+Stress-Testing
+
+Put option gives more accurate result when N and Nsim go larger.
+The SE of put option also shows the two places decimal point which shows the accuracy of the put option.
+
+Put option might need very large Nsim, e.g. Nsim=O(10^7) or Nsim=O(10^8) to reach the required accuracy
+
+Batch 4:
+Result call:92.1757, put:1.2475
+
+1)N=500, Nsim=100000
+Put=1.25376 SD=0.223313 SE=0.000706179
+Call=93.4061; SD=34.3692; SE=0.108685
+
+2)N=500, Nsim=500000
+Put=1.25868 SD=299.478 SE=0.423526
+Call=91.858 SD=45269.2 SE=64.0204
+
+2)N=5000, Nsim=500000
+Put=1.25868 SD=299.478 SE=0.423526
+Call=91.858 SD=45269.2 SE=64.0204
