@@ -17,7 +17,7 @@ private:
 
 public:
 	Range();										// Default constructor
-	Range(const Type& low, const Type& high);		// Constructor with Low and high value
+	Range(const Type& l, const Type& h);			// Constructor with Low and high value
 	Range(const Range<Type>& rng);					// Copy constructor
 	~Range();										// Destructor
 
@@ -31,7 +31,7 @@ public:
 
 	// Boolean functions
 	bool left(const Type& val) const;				// Is the value to the left  of the range?
-	bool right(const Type& val) const;			// Is the value to the right of the range?
+	bool right(const Type& val) const;				// Is the value to the right of the range?
 	bool contains(const Type& val) const;			// Does range contain value?
 
 	// Utility function

@@ -41,6 +41,7 @@ Range<Type>::Range(const Range<Type>& rng)
 	hi = rng.hi;
 }
 
+// Destructor
 template<typename Type>
 Range<Type>::~Range() {}
 
@@ -102,6 +103,7 @@ bool Range<Type>::contains(const Type& val) const
 }
 
 // Utility function
+// The mesh size is constant
 template<typename Type>
 std::vector<Type> Range<Type>::mesh(long nSteps) const
 {

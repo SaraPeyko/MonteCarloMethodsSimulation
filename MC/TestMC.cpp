@@ -26,7 +26,7 @@ namespace SDE
 	{
 		// diffusion term
 		double betaCEV = 1.0;
-		return data->sig * pow(X, betaCEV);		// sig*X
+		return data->sig * pow(X, betaCEV);		// sig*X^(betaCEV)
 	}
 	
 }
@@ -49,11 +49,11 @@ namespace Batch2
 	double S = 100; 
 };
 
-namespace Batch3
-{	double T = 1.5; 
-	double K = 120; 
-	double sig = 0.40; 
-	double r = 0.04; 
+namespace Batch4
+{	double T = 30.0; 
+	double K = 100.0; 
+	double sig = 0.30; 
+	double r = 0.08; 
 	double S = 100.0; 
 };
 
@@ -84,9 +84,9 @@ double SE(T1 M, T2 r, T3 T)
 int main()
 {
 	// Uncommented to test on different batches
-	using namespace Batch1;
-	// using namespace Batch2;
-	// using namespace Batch3;
+	// using namespace Batch1;							// C = 2.13337, P = 5.84628
+	// using namespace Batch2;							// C = 7.96557, P = 7.96557
+	using namespace Batch4;								// C = 92.17570, P = 1.24750
 
 	std::cout << "1 factor MC with explicit Euler\n";
 	OptionData option;
@@ -94,7 +94,7 @@ int main()
 	option.T = T;
 	option.r = r;
 	option.sig = sig;
-	option.type = -1;		// Put: -1, Call: 1
+	option.type = 1;		// Put: -1, Call: 1
 	double S0 = S;
 
 
@@ -105,10 +105,10 @@ int main()
 	long N;
 	std::cout << "Number of subintervals in time: ";
 	std::cin >> N;
-	std::vector<double> x = range.mesh(N);			// create different value of time steps
+	std::vector<double> x = range.mesh(N);			// Create different value of time steps
 
 	long NSim;
-	std::cout << "Number of simulations: ";			// create different value of simulations
+	std::cout << "Number of simulations: ";			// Create different value of simulations
 	std::cin >> NSim;
 
 	double k = option.T / double(N);
@@ -157,16 +157,16 @@ int main()
 		price += (tmp) / double(NSim);
 	}
 
-	// discounting the average price
+	// Discounting the average price
 	price *= exp(-option.r * option.T);
 	double STDEV = SD(res, option.r, option.T);
 	double STERR = SE(res, option.r, option.T);
 
-	// cleanup scoped pointer
+	// Cleanup scoped pointer
 	delete normal;
 
 	std::cout << "Price, after discounting: " << price;
-	std::cout << "\nStandard deviation: " << STDEV;
+	std::cout << "\nStandard Deviation: " << STDEV;
 	std::cout << "\nStandard Error: " << STERR;
 	std::cout << "\nNumber of time origin is hit: " << count << '\n';
 
